@@ -1,0 +1,3 @@
+# Bloggo 
+
+Simple Blog Application
