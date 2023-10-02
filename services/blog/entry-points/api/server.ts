@@ -1,11 +1,15 @@
 import { Server } from 'http';
 import { AddressInfo } from 'net';
 import express from 'express';
+import defineRoutes from './routes';
 
 let connection: Server;
 
 async function startWebServer(): Promise<AddressInfo> {  
   const expressApp = express();
+  expressApp.use(express.json());
+  expressApp.use(express.urlencoded({extended: true}));
+  defineRoutes(expressApp);
   const APIAddress = await openConnection(expressApp);
   return APIAddress;
 }
