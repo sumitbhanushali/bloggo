@@ -13,8 +13,8 @@ export default function defineRoutes(expressApp: express.Application) {
       console.log(
         `Blog API was called to create new Blog ${util.inspect(req.body)}`
       );
-      const creteBlogResponse = await blogUseCase.createBlog(req.body);
-      return res.json(creteBlogResponse);
+      const response = await blogUseCase.createBlog(req.body);
+      return res.json(response);
     } catch (error) {
       next(error);
       return undefined;
@@ -50,8 +50,8 @@ export default function defineRoutes(expressApp: express.Application) {
       console.log(
         `Blog API was called to create new Comment ${util.inspect(req.body)}`
       );
-      const createCommentUseCase = await commentUseCase.createComment(req.body);
-      return res.json(createCommentUseCase);
+      const response = await commentUseCase.createComment(req.body);
+      return res.json(response);
     } catch (error) {
       next(error);
       return undefined;
@@ -87,8 +87,8 @@ export default function defineRoutes(expressApp: express.Application) {
       console.log(
         `Blog API was called to create new User ${util.inspect(req.body)}`
       );
-      const creteUserResponse = await userUseCase.createUser(req.body);
-      return res.json(creteUserResponse);
+      const response = await userUseCase.createUser(req.body);
+      return res.json(response);
     } catch (error) {
       next(error);
       return undefined;
@@ -124,8 +124,8 @@ export default function defineRoutes(expressApp: express.Application) {
       console.log(
         `Blog API was called to create new userLike ${util.inspect(req.body)}`
       );
-      const creteUserLikeResponse = await userLikeUseCase.createUserLike(req.body);
-      return res.json(creteUserLikeResponse);
+      const response = await userLikeUseCase.createUserLike(req.body);
+      return res.json(response);
     } catch (error) {
       next(error);
       return undefined;
