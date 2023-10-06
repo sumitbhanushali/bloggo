@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start:dev": "nodemon start.ts",
+    "start:dev": "PRETTY_PRINT=true nodemon start.ts",
     "start": "ts-node start.ts",
     "db:seed": "prisma db seed",
     "db:reset": "prisma db push --force-reset",

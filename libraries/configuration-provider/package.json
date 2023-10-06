@@ -1,0 +1,23 @@
+{
+  "name": "@bloggo/configuration-provider",
+  "version": "0.0.2",
+  "description": "",
+  "main": "./.dist/index.js",
+  "scripts": {
+    "test": "jest",
+    "test:dev": "jest --watch --silent",
+    "test:dev:verbose": "jest --watch",
+    "installDependencies": "npm install",
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "convict": "^6.2.2"
+  },
+  "devDependencies": {
+    "@types/convict": "^6.1.1",
+    "ts-jest": "^28.0.8",
+    "typescript": "4.6.4"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "@bloggo/logger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./.dist/index.js",
+  "scripts": {
+    "test": "jest --forceExit",
+    "test:dev": "jest --watch --silent --runInBand",
+    "test:dev:verbose": "jest --watch",
+    "build": "tsc",
+    "installDependencies": "npm install"
+  },
+  "dependencies": {
+    "@bloggo/request-context": "^0.1.0",
+    "@bloggo/configuration-provider": "^0.0.2",
+    "pino": "^8.5.0"
+  },
+  "devDependencies": {
+    "@types/is-ci": "^3.0.0",
+    "@types/jest": "^27.4.1",
+    "jest": "^27.5.1",
+    "jest-environment-node": "^27.5.1",
+    "nock": "^13.2.4",
+    "pino-pretty": "^7.6.1",
+    "sinon": "^14.0.0",
+    "ts-jest": "^27.1.3",
+    "ts-node": "^10.7.0",
+    "typescript": "4.6.4"
+  },
+  "author": "",
+  "license": "ISC"
+}

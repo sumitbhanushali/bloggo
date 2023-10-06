@@ -1,5 +1,5 @@
 import { startWebServer } from './entry-points/api/server';
-import { PrismaClient } from '@prisma/client';
+import { logger } from '@bloggo/logger';
 
 async function start() {
     //Array of entry point is being used to support more entry-points kinds like message queue, scheduled job,
@@ -8,8 +8,8 @@ async function start() {
 
 start()
     .then((startResponses) => {
-        console.log(`The app has started successfully ${JSON.stringify(startResponses)}}`);
+        logger.info(`The app has started successfully ${JSON.stringify(startResponses)}}`);
     })
     .catch((error) => {
-        console.log(`The app has failed to started: ${error}}`);
+        logger.error(`The app has failed to started: ${error}}`);
     });
