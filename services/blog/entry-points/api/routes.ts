@@ -1,5 +1,7 @@
 import util from 'util';
 import express from 'express';
+import {ExpressResponseFormatter} from '@bloggo/express-response-formatter';
+
 import * as blogUseCase from '../../domain/blog-use-case';
 import * as commentUseCase from '../../domain/comment-use-case';
 import * as userLikeUseCase from '../../domain/user-like-use-case';
@@ -11,7 +13,7 @@ export default function defineRoutes(expressApp: express.Application) {
   router.post('/', async (req, res, next) => {
     try {
       console.log(
-        `Blog API was called to create new Blog ${util.inspect(req.body)}`
+        `Blog API was called to create newd Blog ${util.inspect(req.body)}`
       );
       const response = await blogUseCase.createBlog(req.body);
       return res.json(response);
@@ -33,7 +35,7 @@ export default function defineRoutes(expressApp: express.Application) {
         return;
       }
 
-      res.json(response);
+      return new ExpressResponseFormatter(res).setHeaderForCreateAndSend().send(response);
     } catch (error) {
       next(error);
     }
