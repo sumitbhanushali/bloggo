@@ -1,20 +1,38 @@
+import { PrismaClient } from '@prisma/client';
 import express, { Request, Response } from 'express';
 const router = express.Router()
+const prisma = new PrismaClient();
 
-router.get('/', (req: Request, res: Response) => {
-    res.send('List of users');
+router.get('/', async (req: Request, res: Response) => {
+    const users = await prisma.user.findMany();
+    res.send(users);
 });
 
-router.get('/:id', (req: Request, res: Response) => {
-    res.send(`User: ${req.params.id} `)
+router.get('/:id', async (req: Request, res: Response) => {
+    const user = await prisma.user.findUnique({
+        where: {
+            id: parseInt(req.params.id),
+        },
+    })
+
+    res.send(user);
 });
 
-router.post('/', (req: Request, res: Response) => {
-    res.send(`User created`);
+router.post('/', async (req: Request, res: Response) => {
+    const user = await prisma.user.create({
+        data: req.body
+    })
+
+    res.send(user);
 });
 
-router.delete('/:id', (req: Request, res: Response) => {
+router.delete('/:id', async (req: Request, res: Response) => {
+    await prisma.user.delete({
+        where: {
+            id: parseInt(req.params.id),
+        },
+    })
     res.send(`User with id: ${req.params.id} deleted`);
 });
 
-export default router;
+export default router
