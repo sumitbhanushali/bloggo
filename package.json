@@ -9,6 +9,7 @@
     "prisma:generate": "prisma generate",
     "start": "node .dist/index.js",
     "build": "tsc",
+    "build:image:dev": "docker image build -t bloggo:dev",
     "build:image": "docker image build -t bloggo:$(node -p \"require('./package.json').version\") .",
     "build:major": "npm version major && npm run build:image",
     "build:minor": "npm version minor && npm run build:image",
